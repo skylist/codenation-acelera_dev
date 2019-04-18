@@ -4,7 +4,6 @@ import RecipeItem from './RecipeItem'
 
 const Home = ({ recipes = [], searchString = '' }) => (
 	<div className="row">
-		{console.log(searchString)}
 		{recipes
 			.filter(
 				recipe =>
