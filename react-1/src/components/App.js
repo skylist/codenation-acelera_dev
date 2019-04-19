@@ -11,8 +11,7 @@ class App extends Component {
 		return (
 			<div className="App">
 				{/* TODO: Navbar precisa receber a string da URL */}
-				<Navbar searchString="" />
-				)}/>
+				<Navbar searchString="" />, console.log(this.props) )}/>
 				<div className="container mt-10">
 					{/* TODO: Implementar rotas  */}
 					<Route
@@ -23,12 +22,24 @@ class App extends Component {
 						)}
 					/>
 					<Route
+						path="/recipe"
+						exact
+						render={props => (
+							<RecipePage
+								{...props}
+								recipes={recipes.results[0]}
+							/>
+						)}
+					/>
+					<Route
 						path="/:searchString"
 						render={({ match }) => (
 							<Home
 								{...match}
 								recipes={recipes.results}
-								searchString={match.params.searchString}
+								searchString={slugify(
+									match.params.searchString
+								)}
 							/>
 						)}
 					/>
