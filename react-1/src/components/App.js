@@ -32,7 +32,7 @@ class App extends Component {
 								recipe={
 									recipes.results.filter(
 										recipe =>
-											slugify(recipe.title) ==
+											slugify(recipe.title) ===
 											match.params.recipe
 									)[0]
 								}
