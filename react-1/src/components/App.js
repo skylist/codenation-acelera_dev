@@ -25,11 +25,17 @@ class App extends Component {
 						)}
 					/>
 					<Route
-						path={`/recipe/:${slugify(this.props)}`}
-						render={props => (
+						path={`/recipe/:recipe`}
+						render={({ match }) => (
 							<RecipePage
-								{...props}
-								recipes={recipes.results[0]}
+								{...match}
+								recipe={
+									recipes.results.filter(
+										recipe =>
+											slugify(recipe.title) ==
+											match.params.recipe
+									)[0]
+								}
 							/>
 						)}
 					/>

@@ -1,42 +1,42 @@
 .App {
-  text-align: center;
+	text-align: center;
 }
 
 .App .container {
-  margin-top: 5rem;
+	margin-top: 5rem;
 }
 
 .row {
-  display: flex;
-  flex-wrap: wrap;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .row > div[class*='col-'] {
- display: flex;
+	display: flex;
 }
 
 .card {
-  width: 100%;
+	width: 100%;
 }
 
 mark {
-  padding: 0;
-  background-color: #ffd703;
+	padding: 0;
+	background-color: #ffd703;
 }
 
 .Navbar-logo {
-  height: 3rem;
+	height: 3rem;
 }
 
 .RecipeItem a {
-  color: #495057;
+	color: #495057;
 }
 
 .RecipeItem a:hover {
-  color: #495057;
-  text-decoration: none;
+	color: #495057;
+	text-decoration: none;
 }
 
 .RecipeItem .card:hover {
-  border: 2px solid #495057;
+	border: 2px solid #495057;
 }

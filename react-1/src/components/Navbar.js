@@ -9,7 +9,9 @@ const Navbar = ({ searchString, updateUrl }) => (
 		</div>
 		<div className="form-group justify-content-center row col-10 my-2">
 			<input
-				value={searchString.slice(1)}
+				value={
+					searchString.includes('recipe') ? '' : searchString.slice(1)
+				}
 				onChange={({ target }) => {
 					updateUrl(target.value)
 				}}
@@ -24,6 +26,10 @@ const Navbar = ({ searchString, updateUrl }) => (
 
 Navbar.propTypes = {
 	searchString: PropTypes.string,
+}
+
+Navbar.defaultProps = {
+	searchString: '',
 }
 
 export default Navbar
