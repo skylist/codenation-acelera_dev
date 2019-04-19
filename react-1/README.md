@@ -29,10 +29,10 @@ Dentro da pasta `sample_data`, você terá uma listagem de receitas que deverá 
 
 -   [x] 1. No endpoint `/`, Renderizar dinâmicamente o componente `RecipeItems` para todos os elementos dentro dos dados de amostra;
 -   [x] 2. No endpoint `/:searchString` deverá executar o filtro das receitas baseada no parametro passado, ex.: `/queijo` deverá trazer apenas receitas que tem queijo no nome ou nos ingredientes;
--   [ ] 3. No endpoint `/:searchString` o parametro inserido deverá ser mostrado no componente `Navbar` como filtro da busca, ex.: O usuário acessa `/queijo`, no `Navbar input` deverá mostrar `queijo`;
--   [ ] 4. Ao digitar um texto no `input` dentro do componente de filtro do `Navbar` a url deverá ser atualizada, ex.: Caso o usuário digite `queijo` no `input` a url deverá ser `/queijo` (a mudança deve ser feita a cada tecla digitada);
+-   [x] 3. No endpoint `/:searchString` o parametro inserido deverá ser mostrado no componente `Navbar` como filtro da busca, ex.: O usuário acessa `/queijo`, no `Navbar input` deverá mostrar `queijo`;
+-   [x] 4. Ao digitar um texto no `input` dentro do componente de filtro do `Navbar` a url deverá ser atualizada, ex.: Caso o usuário digite `queijo` no `input` a url deverá ser `/queijo` (a mudança deve ser feita a cada tecla digitada);
 -   [x] 5. O filtro deverá ser `case insensitive`;
--   [ ] 6. Quando o usuário clicar em uma receita deverá ser redirecionado para `/recipe/:slugify(recipe.title)`, o método slugify está dentro do módulo `src/helpers.js`, ex.: Usuário clica na receita `Torta de laranja` e deverá ser redirecionado para `/recipe/torta-de-laranja`.
+-   [x] 6. Quando o usuário clicar em uma receita deverá ser redirecionado para `/recipe/:slugify(recipe.title)`, o método slugify está dentro do módulo `src/helpers.js`, ex.: Usuário clica na receita `Torta de laranja` e deverá ser redirecionado para `/recipe/torta-de-laranja`.
 
 **Dicas:**
 
