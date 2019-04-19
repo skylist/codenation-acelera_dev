@@ -1,0 +1,15 @@
+internal/modules/cjs/loader.js:605
+    throw err;
+    ^
+
+Error: Cannot find module 'C:\Users\mathe\codenation\react-1\node_modules\jest-cli'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:603:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:25)
+    at Module.require (internal/modules/cjs/loader.js:658:17)
+    at require (internal/modules/cjs/helpers.js:22:18)
+    at getJest (C:\Users\mathe\codenation\react-1\node_modules\jest\node_modules\jest-cli\build\cli\getJest.js:22:12)
+    at Object.run (C:\Users\mathe\codenation\react-1\node_modules\jest\node_modules\jest-cli\build\cli\index.js:39:48)
+    at Object.<anonymous> (C:\Users\mathe\codenation\react-1\node_modules\react-scripts\scripts\test.js:104:6)
+    at Module._compile (internal/modules/cjs/loader.js:722:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:733:10)
+    at Module.load (internal/modules/cjs/loader.js:620:32)

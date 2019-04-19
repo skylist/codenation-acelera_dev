@@ -1,22 +1,30 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import RecipeItem from './RecipeItem'
-import { slugify } from '../helpers'
+import { slugify, highlightText } from '../helpers'
 
 const Home = ({ recipes = [], searchString = '' }) => (
 	<div className="row">
 		{recipes
 			.filter(
 				recipe =>
-					slugify(recipe.title).includes(searchString) ||
-					slugify(recipe.ingredients).includes(searchString)
+					recipe.title
+						.toLowerCase()
+						.includes(searchString.toLowerCase()) ||
+					recipe.ingredients
+						.toLowerCase()
+						.includes(searchString.toLowerCase())
 			)
 			.map(recipe => (
 				<RecipeItem
-					key={recipe.href}
-					title={recipe.title}
-					ingredients={recipe.ingredients}
+					key={recipe.title}
+					title={highlightText(recipe.title, searchString)}
+					ingredients={highlightText(
+						recipe.ingredients,
+						searchString
+					)}
 					thumbnail={recipe.thumbnail}
+					href={slugify(recipe.title)}
 				/>
 			))}
 	</div>

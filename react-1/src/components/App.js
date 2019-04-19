@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
+import { Route, withRouter } from 'react-router-dom'
 import Navbar from './Navbar'
 import Home from './Home'
 import RecipePage from './RecipePage'
@@ -8,10 +8,13 @@ import recipes from '../sample_data/recipes.json'
 
 class App extends Component {
 	render() {
+		const { location, history } = this.props
 		return (
 			<div className="App">
-				{/* TODO: Navbar precisa receber a string da URL */}
-				<Navbar searchString="" />, console.log(this.props) )}/>
+				<Navbar
+					searchString={location.pathname}
+					updateUrl={history.push}
+				/>
 				<div className="container mt-10">
 					{/* TODO: Implementar rotas  */}
 					<Route
@@ -22,8 +25,7 @@ class App extends Component {
 						)}
 					/>
 					<Route
-						path="/recipe"
-						exact
+						path={`/recipe/:${slugify(this.props)}`}
 						render={props => (
 							<RecipePage
 								{...props}
@@ -37,9 +39,7 @@ class App extends Component {
 							<Home
 								{...match}
 								recipes={recipes.results}
-								searchString={slugify(
-									match.params.searchString
-								)}
+								searchString={match.params.searchString}
 							/>
 						)}
 					/>
@@ -49,4 +49,4 @@ class App extends Component {
 	}
 }
 
-export default App
+export default withRouter(App)
