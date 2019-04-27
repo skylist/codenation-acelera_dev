@@ -40,3 +40,7 @@ mark {
 .RecipeItem .card:hover {
 	border: 2px solid #495057;
 }
+
+.RecipePage .card-img-top {
+	width: 100px !important;
+}

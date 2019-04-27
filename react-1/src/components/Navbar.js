@@ -9,12 +9,8 @@ const Navbar = ({ searchString, updateUrl }) => (
 		</div>
 		<div className="form-group justify-content-center row col-10 my-2">
 			<input
-				value={
-					searchString.includes('recipe') ? '' : searchString.slice(1)
-				}
-				onChange={({ target }) => {
-					updateUrl(target.value)
-				}}
+				value={searchString}
+				onChange={updateUrl}
 				className="form-control col-9 mr-2"
 				type="search"
 				placeholder="Search"

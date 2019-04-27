@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, withRouter } from 'react-router-dom'
+import { Route, withRouter, Switch, matchPath } from 'react-router-dom'
 import Navbar from './Navbar'
 import Home from './Home'
 import RecipePage from './RecipePage'
@@ -7,33 +7,38 @@ import { slugify } from '../helpers'
 import recipes from '../sample_data/recipes.json'
 
 class App extends Component {
+
+	handlerSearch = ({target})=>{
+		this.props.history.push(target.value)
+	}
+
 	render() {
-		const { location, history } = this.props
+		const { pathname } = this.props.location
+    	const match = matchPath(pathname, { path: '/:searchString', exact: true });
 		return (
 			<div className="App">
 				<Navbar
-					searchString={location.pathname}
-					updateUrl={history.push}
+					searchString={(match && match.params.searchString) || ''}
+					updateUrl={this.handlerSearch}
 				/>
 				<div className="container mt-10">
-					{/* TODO: Implementar rotas  */}
+				<Switch>
 					<Route
 						path="/"
 						exact
-						render={props => (
-							<Home {...props} recipes={recipes.results} />
+						component={() => (
+							<Home recipes={recipes.results} />
 						)}
 					/>
 					<Route
-						path={`/recipe/:recipe`}
-						render={({ match }) => (
+						path={`/recipe/:slug`}
+						component={({ match:{params:{slug}} }) => (
 							<RecipePage
-								{...match}
 								recipe={
 									recipes.results.filter(
 										recipe =>
 											slugify(recipe.title) ===
-											match.params.recipe
+											slug
 									)[0]
 								}
 							/>
@@ -41,14 +46,14 @@ class App extends Component {
 					/>
 					<Route
 						path="/:searchString"
-						render={({ match }) => (
+						component={({ match:{params:{searchString}} }) => (
 							<Home
-								{...match}
 								recipes={recipes.results}
-								searchString={match.params.searchString}
+								searchString={searchString}
 							/>
 						)}
 					/>
+					</Switch>
 				</div>
 			</div>
 		)
